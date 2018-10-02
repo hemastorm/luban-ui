@@ -7,6 +7,10 @@ import iView from 'iview';
 import { Input, Tree } from 'element-ui'
 import util from './util/util'
 import log from './util/logger'
+import cookie from './util/cookie'
+import axios from "axios"
+import qs from "qs"
+import './basic/common'
 import 'iview/dist/styles/iview.css'
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -17,10 +21,14 @@ Vue.use(Tree)
 Vue.use(router);
 //引用iview的ui组件
 Vue.use(iView);
+Vue.prototype.$axios = axios
+Vue.prototype.$qs = qs
 //引入工具，配置代理
 Vue.prototype.$utilHelper = util
 //引入log工具
 Vue.prototype.$logHelper = log
+//引入cookie工具
+Vue.prototype.$cookieHelper = cookie
 //项目上线后不再提示警告
 Vue.config.productionTip = false
 

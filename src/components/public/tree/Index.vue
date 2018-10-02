@@ -1,7 +1,7 @@
 <template>
   <div>
-    <el-input placeholder="输入关键字进行过滤" v-model="filterText" style="margin-top:5px">
-    </el-input>
+    <!-- <el-input placeholder="输入关键字进行过滤" v-model="filterText" style="margin-top:5px">
+    </el-input> -->
     <el-tree class="filter-tree" style="overflow:auto;margin-top:5px" :data="treeData" :filter-node-method="filterNode" @node-click="handleNodeClick" ref="tree" node-key="value" :expand-on-click-node="false" :render-content="renderContent" default-expand-all>
     </el-tree>
   </div>
@@ -37,6 +37,9 @@ export default {
       });
     },
     handleNodeClick(nodeData) {
+      if (nodeData.status == 1) {
+        return;
+      }
       this.$emit("NodeClick", nodeData);
     },
     renderContent(h, { node, data, store }) {
@@ -64,12 +67,7 @@ export default {
             this.runParam.parentNode = parentNode;
             this.runParam.data = data;
             this.runParam.nodeData = nodeData;
-            // this.$emit("DelNode", parentNode, data, this.CanDelNext);
-            parentNode.children.forEach((v, i) => {
-              if (v.value == data.value) {
-                parentNode.children.splice(i, 1);
-              }
-            });
+            this.$emit("DelNode", parentNode, data, this.CanDelNext);
           },
           //保存节点
           SaveEdit: nodeData => {

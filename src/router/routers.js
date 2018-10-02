@@ -3,9 +3,16 @@ import order from "@/components/order/order";
 import material from "@/components/material/material";
 import formula from "@/components/material/formula";
 import style from "@/components/material/style";
+import login from "@/components/login/login";
+import materialList from "@/components/material/materialTable";
 export default [
 {
-  path: "/",
+  path: "/login",
+  name: "login",
+  component: login
+},
+{
+  path: "/index",
   name: "index",
   component: index,
   children: [
@@ -17,7 +24,12 @@ export default [
   {
     path: "material",
     name: "material",
-    component: material
+    component: material,
+    children: [{
+      path: "materialList",
+      name: "materialList",
+      component: materialList
+    }]
   },
   {
     path: "formula",
@@ -28,5 +40,5 @@ export default [
     path: "style",
     name: "style",
     component: style
-  }]
+  }],
 }];

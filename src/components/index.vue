@@ -6,6 +6,7 @@
   border-radius: 4px;
   overflow: hidden;
   width: 100%;
+  height: 100%;
   border-style: solid;
 }
 .layout-logo {
@@ -37,7 +38,7 @@
 </style>
 <template>
   <div class="layout">
-    <Layout>
+    <Layout style="height:100%">
       <Header>
         <Menu mode="horizontal" theme="dark" active-name="index">
           <div class="layout-logo"></div>

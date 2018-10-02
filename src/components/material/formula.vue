@@ -1,13 +1,9 @@
 <template>
   <div>
-    this is formula
+    this is test {{$utilHelper.generateUUID()}}
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {};
-  }
-};
 </script>
-
+<style>
+</style>

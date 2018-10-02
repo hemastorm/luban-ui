@@ -1,19 +1,19 @@
 <template>
   <span class="span_item">
     <span @click="Expanded">
-      <Input v-if="node.status == 1" style="width: 100px;" v-model="node.label" size="small"></Input>
+      <Input v-if="node.status == 1" style="width: 100px;" v-model="node.label" size="small" autofocus></Input>
       <span v-if="node.status != 1">{{node.label}}</span>
     </span>
     <span v-if="node.status == 1">
-      <Button style="margin-left: 2px;" size="small" type="success" icon="md-checkmark" @click="SaveEdit">
+      <Button style="margin-left: 2px;" size="small" type="success" icon="md-checkmark" @click.stop="SaveEdit">
       </Button>
-      <Button style="margin-left: 2px;" size="small" type="warning" icon="md-close" @click="CancelEdit">
+      <Button style="margin-left: 2px;" size="small" type="warning" icon="md-close" @click.stop="CancelEdit">
       </Button>
     </span>
     <span class="span_icon">
-      <Icon v-if="node.status == 0" style="margin-left: 2px" color="#24ff00" type="ios-create" size="18" @click.native="OpenEdit"></Icon>
-      <Icon v-if="node.status == 0" style="margin-left: 2px" type="md-add-circle" color="#3c78d8" size="18" @click.native="Append"></Icon>
-      <Icon v-if="node.status == 0&& node.children.length < 1" style="margin-left: 2px" type="ios-trash" color="red" size="18" @click.native="Delete"></Icon>
+      <Icon v-if="node.status == 0" style="margin-left: 2px" color="#24ff00" type="ios-create" size="18" @click.stop="OpenEdit"></Icon>
+      <Icon v-if="node.status == 0" style="margin-left: 2px" type="md-add-circle" color="#3c78d8" size="18" @click.stop="Append"></Icon>
+      <Icon v-if="node.status == 0&& node.children.length < 1" style="margin-left: 2px" type="ios-trash" color="red" size="18" @click.stop="Delete"></Icon>
     </span>
   </span>
 </template>
